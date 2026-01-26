@@ -1,0 +1,2554 @@
+body {
+    background-color: #e8f1f2;
+    color: #0d2533;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  main > header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #c5e4eb;
+      padding: 1.25em 1.75em;
+      margin: 1em;
+      border-radius: 0.65rem;
+      box-shadow: 0 12px 30px rgba(13, 37, 51, 0.08);
+    }
+  main > header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  /* Apply same header button styles to anchors and button elements */
+  main > header .button {
+    margin: 0;
+    padding: 0.45em 0.9em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 120px;
+    line-height: 1;
+  }
+  /* Right-side wrapper for header controls */
+  .header-right{display:flex;align-items:center;gap:0.6rem}
+  .header-actions{display:flex;align-items:center;gap:0.75rem}
+  .header-actions .button, .header-right > .button, .header-right form{margin:0}
+  main > header span {
+    margin: 0;
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Comment block: avatar on left, main content on right */
+  .campaign-comment {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eef3f4;
+    margin: 0;
+    background: transparent;
+  }
+
+  .campaign-comment .comment-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .campaign-comment .comment-header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .campaign-comment .comment-avatar {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .campaign-comment .comment-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid rgba(0,0,0,0.04);
+  }
+
+  /* Header: left = author info (name + time), right = controls */
+  .campaign-comment .comment-head {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+
+  .campaign-comment .author-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.12rem;
+    min-width: 0;
+    color: #0e3b45;
+    flex: 1 1 auto;
+  }
+
+  .campaign-comment .author-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .campaign-comment .author-link strong {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .campaign-comment .comment-time {
+    color: #6b7c80;
+    font-size: 0.82rem;
+    line-height: 1;
+  }
+
+  .campaign-comment .comment-body p {
+    margin: 0;
+    color: #244b57;
+    line-height: 1.45;
+    font-size: 0.96rem;
+    word-break: break-word;
+  }
+
+  .campaign-comment .comment-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  .campaign-comment .comment-controls .delete-btn,
+  .campaign-comment .comment-controls .report-btn {
+    background: transparent;
+    border: 0;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6b6b6b;
+  }
+
+  .campaign-comment .comment-controls svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Donation list item: mimic comment layout for consistent avatars */
+  .campaign-donation {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eef3f4;
+    margin: 0;
+    background: transparent;
+  }
+
+  .campaign-donation .donation-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .campaign-donation .donation-header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .campaign-donation .donation-avatar {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .campaign-donation .donation-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid rgba(0,0,0,0.04);
+  }
+
+  .campaign-donation .donation-author-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.12rem;
+    min-width: 0;
+    flex: 1 1 auto;
+    color: #0e3b45;
+  }
+
+  .campaign-donation .donor-name {
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .campaign-donation .donation-time {
+    color: #6b7c80;
+    font-size: 0.82rem;
+  }
+
+  .campaign-donation .donation-amount-block {
+    flex: 0 0 auto;
+    text-align: right;
+    min-width: 100px;
+  }
+
+  .campaign-donation .donation-amount {
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .campaign-donation .donation-message p {
+    margin: 0;
+    color: #244b57;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 480px) {
+    .campaign-donation .donation-avatar img {
+      width: 40px;
+      height: 40px;
+    }
+    .campaign-donation .donation-amount-block {
+      min-width: 70px;
+    }
+  }
+
+  /* Responsive tweaks for compact screens */
+  @media (max-width: 480px) {
+    .campaign-comment .comment-inner {
+      gap: 0.6rem;
+    }
+
+    .campaign-comment .comment-avatar img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .campaign-comment .comment-head {
+      gap: 0.5rem;
+    }
+  }
+
+  .campaign-comment hr {
+    border: 0;
+    height: 1px;
+    background: #f2f6f6;
+    margin: 0.6rem 0 0 0;
+  }
+  #cards article.card header:hover a.delete {
+    display: inline;
+  }
+  #cards article.card li {
+    list-style-type: none;
+  }
+  #cards article.card li label {
+    display: flex;
+    align-items: baseline;
+  }
+  #cards article.card li label span {
+    margin-left: .5em;
+    flex-grow: 1;
+  }
+  #cards article.card li label a {
+    display: none;
+  }
+  #cards article.card li label:hover a {
+    display: inline;
+  }
+  #cards article.card input:checked + span {
+    text-decoration: var(--primary-color) solid line-through;
+  }
+  #cards article.card ul {
+    margin: 0;
+  }
+  #cards article.card form {
+    margin: 0;
+  }
+  #cards article.card input[type=text] {
+    background-color: white;
+    margin: 0;
+  }
+  #content label {
+    font-weight: normal;
+  }
+  #content > form {
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 20em;
+    border: 1px solid #9fd5c2;
+  }
+  #content > form .error {
+    font-weight: bold;
+    color: #ff3333;
+  }
+  #content > form .success {
+    font-weight: bold;
+    color: #106af1;
+  }
+  #content > form input {
+    background-color: white;
+  }
+  @media (max-width: 70em) {
+    #cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    main > header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+    main > header h1 {
+      grid-row-end: span 2;
+    }
+  }
+  @media (max-width: 40em) {
+    #cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 25em) {
+    body {
+      margin: 0;
+    }
+    main > header {
+      margin: 0;
+      padding: 0.5em;
+    }
+    main > header span {
+      margin: 0;
+    }
+    #content form {
+      margin: 0;
+      max-width: 25em;
+    }
+    article.card {
+      margin: 0;
+      border-bottom: 1px solid rgba(96, 108, 118, 0.4);
+    }
+  }
+  /**
+   * Override milligram colors
+   * Some styles might be missing
+   **/
+  button {
+    background-color: #1aa37a;
+    border-color: #1aa37a;
+  }
+  a.button {
+    background-color: #1aa37a;
+    border-color: #1aa37a;
+  }
+
+  /* Highlight campaign owner on hover inside campaign cards */
+  .campaign-card .campaign-card-meta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.12rem 0.4rem;
+    border-radius: 6px;
+    transition: background-color 120ms ease, color 120ms ease, transform 120ms ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .campaign-card .campaign-card-meta a:hover {
+    background-color: rgba(59,130,246,0.08); /* subtle blue highlight */
+    color: #1e40af;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  a.button.button-outline {
+    color: #1aa37a;
+    border-color: #1aa37a;
+  }
+  /* Secondary modern button */
+  .button-secondary-modern {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+  }
+
+  .button-secondary-modern:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+    border-color: #9ca3af;
+  }
+
+  /* Google sign-in button: white, rounded, subtle border, inline logo */
+  a.button.button-google {
+    background-color: #ffffff;
+    color: #202124;
+    border: 1px solid #dadce0;
+    padding: 0.45em 0.75em;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.06);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a.button.button-google:hover {
+    box-shadow: 0 2px 6px rgba(60,64,67,0.12);
+  }
+
+  a.button.button-google .google-logo {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    display: block;
+  }
+
+  a.button.button-google .google-text {
+    line-height: 1;
+    font-size: 0.95rem;
+  }
+
+  /* Center the Google sign-in button on the login page */
+  .oauth-signin {
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .oauth-signin .button-google {
+    /* ensure the button is centered and doesn't stretch full-width */
+    display: inline-flex;
+    justify-content: center;
+  }
+  a {
+    color: #0d7db8;
+  }
+  input[type=text]:focus,
+  input[type=email]:focus,
+  input[type=password]:focus {
+    border-color: #1aa37a;
+  }
+
+  /* Campaign page */
+  #campaign-details.campaign-page {
+    margin: 2.5em auto;
+    padding: 2rem;
+    max-width: 1100px;
+    background: #ffffff;
+    border-radius: 0.85rem;
+    box-shadow: 0 25px 50px rgba(5, 54, 81, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .campaign-header {
+    background: linear-gradient(120deg, #eef8ff 0%, #e0fbf1 100%);
+    border: 1px solid #c6e7f2;
+    border-radius: 0.75rem;
+    padding: 1.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .campaign-header h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .campaign-category {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+    color: #0d7db8;
+  }
+
+  .campaign-header .muted {
+    margin: 0;
+  }
+
+  .campaign-header .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .campaign-header .tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #1aa37a;
+    color: #1aa37a;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    background: rgba(26, 163, 122, 0.1);
+  }
+
+  /* Delete campaign button (visible to owner) */
+  .campaign-header .delete-campaign-btn {
+    background: #ff4d4f;
+    border-color: #ff4d4f;
+    color: #ffffff;
+    /* reduce vertical padding so the button height matches the tag */
+    padding: 0.45rem 1.25rem;
+    border-radius: 0.45rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(255, 77, 79, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 72px;
+    line-height: 1;
+    align-self: center;
+    font-size: 0.9rem;
+  }
+
+  .campaign-header .delete-campaign-btn:hover {
+    background: #e04445;
+    border-color: #e04445;
+  }
+  /* Edit campaign button: match size/alignment of delete button */
+  .campaign-header .edit-campaign-btn,
+  .campaign-panel .edit-campaign-btn {
+    background: #1aa37a;
+    border-color: #1aa37a;
+    color: #ffffff;
+    padding: 0.45rem 1.25rem;
+    border-radius: 0.45rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(26, 163, 122, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 72px;
+    line-height: 1;
+    align-self: center;
+    font-size: 0.9rem;
+  }
+
+  .campaign-header .edit-campaign-btn:hover,
+  .campaign-panel .edit-campaign-btn:hover {
+    background: #158f69;
+    border-color: #158f69;
+  }
+  .campaign-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .campaign-description,
+  .campaign-progress,
+  .campaign-panel {
+    background: #ffffff;
+    border: 1px solid #cbe0d4;
+    /* match the tag font-size so heights align */
+    font-size: 0.85rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(9, 64, 94, 0.04);
+  }
+
+  .campaign-progress .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .campaign-progress .current {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .campaign-progress .goal {
+    color: #3c5667;
+    font-weight: 500;
+  }
+
+  .campaign-progress .progress-track {
+    margin: 1rem 0;
+    width: 100%;
+    height: 0.75rem;
+    border-radius: 999px;
+    background: #d1ebdf;
+    overflow: hidden;
+  }
+
+  .campaign-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0d7db8, #1aa37a);
+  }
+
+  .campaign-stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .campaign-stats li {
+    display: flex;
+    flex-direction: column;
+    background: #f1fbf6;
+    border-radius: 0.4rem;
+    padding: 0.75rem;
+  }
+
+  .campaign-stats .stat-label {
+    font-size: 0.85rem;
+    color: #56707e;
+  }
+
+  .campaign-stats .stat-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0d7db8;
+  }
+
+  .campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .campaign-panel header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Ensure panel titles line up with list content (same left inset as items) */
+  .campaign-panel header h3 {
+    margin: 0;
+    padding-left: 0.75rem;
+  }
+
+  /* Align empty-state placeholder text with the panel titles */
+  .campaign-panel > p.muted {
+    padding-left: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .campaign-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* further tighten vertical gap between items */
+    gap: 0.3rem;
+  }
+
+  .campaign-update header,
+  .campaign-donation .donation-header,
+  .campaign-comment header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .campaign-update h4 {
+    margin: 0;
+  }
+
+  .campaign-update time,
+  .campaign-donation time,
+  .campaign-comment time {
+    font-size: 0.85rem;
+    color: #777;
+  }
+
+  .campaign-donation {
+    border-left: 4px solid #7ac4d4;
+    /* match update/comment spacing so the accent bar reaches the same visual end */
+    padding: 0.9rem 0 0.9rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Latest updates panel bar (distinct color) */
+  .campaign-update {
+    border-left: 4px solid #1aa37a;
+    /* Use same vertical padding and left inset as other list items */
+    padding: 0.9rem 0 0.9rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  button.button:contains("Donate"), a.button:contains("Donate") {
+    background-color: #1aa37a;
+    border-color: #1aa37a;
+    color: #fff;
+}
+
+  /* Align update markup to match donation/comment style (header/body) */
+  .campaign-update .update-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .campaign-update .update-header strong {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    color: #153542;
+  }
+
+  /* Use header bottom margin as the single source of truth for title->body gap */
+  .campaign-update .update-header,
+  .campaign-donation .donation-header,
+  .campaign-comment header {
+    /* further reduce header->body gap for a denser layout */
+    margin-bottom: 0.1rem;
+  }
+
+  /* Make donation and comment names match update titles */
+  .campaign-donation .donation-header strong,
+  .campaign-comment header strong {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    color: #153542;
+  }
+
+
+
+  /* body elements should sit directly after header; header provides the gap */
+  .campaign-update .update-body {
+    margin-top: 0;
+  }
+
+  .campaign-update .update-body p {
+    margin: 0;
+    color: #244b57;
+    line-height: 1.5;
+  }
+
+  .campaign-donation .donation-amount {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* Make donation message spacing match updates (remove default <p> margins) */
+  .campaign-donation .donation-body {
+    margin-top: 0;
+  }
+
+  .campaign-donation .donation-body p {
+    margin: 0;
+    color: #244b57;
+    line-height: 1.5;
+  }
+
+  /* Apply same reset/spacing to community comments */
+  .campaign-comment p {
+    margin: 0;
+    color: #244b57;
+    line-height: 1.5;
+    margin-top: 0;
+  }
+
+  .campaign-comment {
+    border-left: 4px solid #a8dfc6;
+    /* remove top padding entirely to eliminate excess white space above comment header */
+    padding: 0rem 0 0.9rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .muted {
+    color: #587086;
+  }
+
+  /* Campaign list*/
+  .campaigns-page {
+    margin: 2.5em auto;
+    max-width: 1100px;
+    padding: 0 1rem 3rem;
+  }
+
+  .campaigns-header {
+    margin-bottom: 1rem;
+  }
+
+  .campaigns-tagline {
+    margin: 0 0 2rem 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    line-height: 1.6;
+  }
+
+  .campaigns-filters {
+    margin-bottom: 2rem;
+  }
+
+  .campaigns-search {
+    display: flex;
+    gap: 0.75rem;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .campaigns-search .category-filter {
+    padding: 0.6rem 1rem;
+    border: 2px solid #b8dfd8;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    margin: 0;
+    background: white;
+    cursor: pointer;
+    min-width: 180px;
+  }
+
+  .campaigns-search .category-filter:focus {
+    border-color: #1aa37a;
+    outline: none;
+  }
+
+  .campaigns-search .search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.6rem 1rem;
+    border: 2px solid #b8dfd8;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .campaigns-search .category-filter {
+    min-width: 180px;
+    padding: 0.6rem 1rem;
+    border: 2px solid #b8dfd8;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    margin: 0;
+    background: white;
+    cursor: pointer;
+    appearance: none;
+    padding-right: 2.5rem;
+  }
+
+  .campaigns-search .category-filter:hover,
+  .campaigns-search .category-filter:focus {
+    border-color: #1aa37a;
+    outline: none;
+  }
+
+  .campaigns-search .search-input:focus {
+    border-color: #1aa37a;
+    outline: none;
+  }
+
+  .campaigns-search .search-button {
+    background: #1aa37a;
+    color: white;
+    border: 2px solid #1aa37a;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .campaigns-search .search-button:hover {
+    background: #158f69;
+    border-color: #158f69;
+  }
+
+  .campaigns-search .search-clear {
+    color: #0d7db8;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #b8dfd8;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .campaigns-search .search-clear:hover {
+    background: #f0f8f6;
+    border-color: #0d7db8;
+  }
+
+  .campaigns-search .search-clear:active {
+    transform: scale(0.98);
+  }
+
+  .no-campaigns-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f0f8f6 0%, #fafcfc 100%);
+    border-radius: 1rem;
+    border: 3px dashed #b8dfd8;
+  }
+
+  .no-campaigns-message .muted {
+    font-size: 1.35rem;
+    color: #0d7db8;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .no-campaigns-message strong {
+    color: #1aa37a;
+    font-weight: 700;
+  }
+
+  .campaigns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .campaign-card {
+    background: #ffffff;
+    border: 1px solid #cbe0d4;
+    border-radius: 0.65rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 30px rgba(5, 54, 81, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    will-change: transform;
+    transform-origin: center bottom;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Pop-up effect on hover: lift slightly and increase shadow */
+  .campaign-card:hover,
+  .campaign-card:focus-within {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 28px 48px rgba(5, 54, 81, 0.12);
+    z-index: 2;
+  }
+
+  /* Make whole card clickable via overlay link without breaking inner links */
+  .campaign-card { position: relative; }
+
+  .campaign-card .card-link {
+    position: absolute;
+    inset: 0;
+    display: block;
+    z-index: 1;
+    border-radius: inherit;
+    /* keep the overlay visually invisible but keyboard-focusable */
+    background: transparent;
+  }
+
+  /* Ensure inner anchors (profile link etc.) are above the overlay and remain clickable */
+  .campaign-card a:not(.card-link) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .campaign-card .card-link:focus {
+    outline: 3px solid rgba(13,125,184,0.18);
+    outline-offset: 2px;
+  }
+
+  .campaign-card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .campaign-card h3 {
+    margin: 0;
+  }
+
+  .campaign-card-summary {
+    color: #557384;
+    margin: 0;
+  }
+
+  .campaign-card-meta {
+    font-size: 0.9rem;
+    color: #3c5667;
+    margin: 0;
+  }
+
+  /* Creator name link inside campaign cards — keep visual style consistent */
+  .campaign-card-meta a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .campaign-card-meta a:hover {
+    text-decoration: underline;
+    color: #0d7db8;
+  }
+
+  .campaign-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #0d7db8;
+  }
+
+  .campaign-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .campaign-status.status-active {
+    background: rgba(26, 163, 122, 0.12);
+    color: #148760;
+  }
+
+  /* Suspended campaigns: show an orange badge similar to active */
+  .campaign-status.status-suspended {
+    background: rgba(255, 159, 67, 0.12);
+    color: #d97706;
+  }
+
+  .campaign-status.status-completed {
+    background: rgba(13, 125, 184, 0.12);
+    color: #0d7db8;
+  }
+
+  .campaign-status.status-cancelled {
+    background: rgba(230, 93, 93, 0.15);
+    color: #b33232;
+  }
+
+  .campaign-card-progress .progress-track {
+    width: 100%;
+    height: 0.6rem;
+    border-radius: 999px;
+    background: #d1ebdf;
+    overflow: hidden;
+  }
+
+  .campaign-card-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0d7db8, #1aa37a);
+  }
+
+  .campaign-card-progress .progress-numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #3c5667;
+    margin-top: 0.35rem;
+  }
+
+  .campaign-card-stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .campaign-card-stats li {
+    background: #f1fbf6;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .campaign-card-stats .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5f7687;
+  }
+
+  .campaign-card-stats .stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0d7db8;
+  }
+
+  @media (max-width: 60em) {
+    .campaign-overview {
+      grid-template-columns: 1fr;
+    }
+    .campaign-description {
+      grid-column: span 1;
+    }
+    .campaign-header {
+      padding: 1.5rem;
+    }
+  }
+  
+/* Profile page / edit styles — harmonized with campaign look */
+.profile-shell{
+  margin: 2.5em auto;
+  padding: 2rem;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 0.85rem;
+  box-shadow: 0 25px 50px rgba(5,54,81,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid #e6f0ea;
+}
+
+.profile-grid{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.profile-left{width:220px}
+
+.profile-avatar{
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(120deg, #eef8ff 0%, #eafbf0 100%);
+  box-shadow: 0 8px 20px rgba(9,64,94,0.06);
+}
+
+/* Report button icon styling */
+.report-btn {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.report-btn svg {
+  display: block;
+  transition: opacity 120ms ease;
+}
+.report-btn:hover svg,
+.report-btn:focus svg {
+  opacity: 0.7;
+}
+.report-btn:active svg {
+  opacity: 0.5;
+}
+.report-btn:focus {
+  outline: none;
+}
+
+/* Show focus ring only for keyboard users */
+.report-btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(245, 48, 3, 0.12);
+  border-radius: 6px;
+}
+
+/* Delete button (icon-only) - similar pop effect to report button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  padding: 0.12rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn svg {
+  display: block;
+  /* make the delete icon larger */
+  width: 22px;
+  height: 22px;
+  transition: transform 140ms ease, opacity 140ms ease;
+  transform-origin: center center;
+  /* lower baseline slightly more so the icon sits more aligned with the owner name */
+  transform: translateY(16px);
+}
+.delete-btn:hover svg,
+.delete-btn:focus svg,
+.delete-btn:active svg {
+  /* soften the hover rise so the icon doesn't jump too high */
+  /* bring it up to 10px (6px rise from default 16px) for a subtler effect */
+  transform: translateY(10px) scale(1.22);
+}
+.delete-btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(245, 48, 3, 0.12);
+  border-radius: 6px;
+}
+
+.profile-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+.profile-main{flex:1}
+
+.profile-row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+
+.panel{flex:1;padding:1rem;background:#ffffff;border:1px solid #cbe0d4;border-radius:0.6rem;box-shadow:0 10px 25px rgba(9,64,94,0.04);display:flex;flex-direction:column}
+
+.list-item{padding:12px 0;border-bottom:1px solid #f0f6f2}
+
+.muted{color:#587086;font-size:0.95rem}
+
+.status-badge{background:#eaf6ef;color:#197a38;padding:6px 10px;border-radius:10px;font-size:0.85rem}
+.status-badge.gray{background:#f7f8fa;color:#666}
+
+.progress{background:#dff2e8;height:12px;border-radius:999px;overflow:hidden}
+.progress > .bar{height:100%;background:linear-gradient(90deg,#0d7db8,#1aa37a)}
+
+/* panel footer sticks to bottom so 'View all' appears at panel bottom without extra gap */
+.panel .panel-footer{margin-top:auto;padding-top:8px}
+
+.profile-meta b{display:inline-block;width:140px}
+
+.edit-link{font-size:0.95rem;margin-left:8px}
+
+/* Admin badge - unified styling for admin profile indicator */
+.admin-badge{
+  display:inline-block;
+  background:#0f9d58;
+  color:#ffffff;
+  padding:0.25rem 0.6rem;
+  border-radius:4px;
+  margin-left:0.75rem;
+  font-size:0.9rem;
+  vertical-align:middle;
+  letter-spacing:0.10em; /* increased spacing for readability */
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+/* Banned badge - mirrors admin styling but with danger color */
+.banned-badge{
+  display:inline-block;
+  background:#c33;
+  color:#ffffff;
+  padding:0.25rem 0.6rem;
+  border-radius:4px;
+  margin-left:0.5rem;
+  font-size:0.9rem;
+  vertical-align:middle;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+/* Admin page search layout (flexbox) */
+.admin-search-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:1rem;
+}
+.admin-search-form{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:1;
+  min-width:0; /* allow child flex:1 to shrink on small screens */
+}
+.admin-search-form .search-input{
+  flex:1;
+  padding:8px 12px; /* balanced vertical padding */
+  font-size:1rem;
+  border:1px solid #d7e9e6;
+  border-radius:6px;
+  box-sizing:border-box;
+  min-width:0;
+  height:40px; /* match button height */
+}
+.admin-search-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto; /* push actions to the right */
+}
+.admin-search-actions .button{
+  height:40px;
+  padding:0 14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.admin-search-actions .button-outline{
+  background:transparent;
+  border:1px solid #1aa37a;
+  color:#1aa37a;
+}
+
+@media (max-width: 640px){
+  .admin-search-row{flex-direction:column;align-items:stretch;gap:8px}
+  .admin-search-form{width:100%}
+  .admin-search-actions-right{justify-content:flex-end}
+  .admin-search-actions{justify-content:flex-end}
+  .admin-search-actions .button{height:44px}
+}
+
+/* Profile edit form */
+.profile-edit form{background:#ffffff;border:1px solid #cbe0d4;padding:1.5rem;border-radius:0.6rem;box-shadow:0 10px 25px rgba(9,64,94,0.04);max-width:700px}
+.profile-edit .avatar-preview{width:120px;height:120px;border-radius:999px;overflow:hidden;border:1px solid #e6e6e6;background:#f6fbf6;display:flex;align-items:center;justify-content:center}
+.profile-edit .avatar-preview img{width:100%;height:100%;object-fit:cover}
+.profile-edit .field-row{display:flex;gap:1rem;align-items:center}
+.profile-edit input[type=file]{border:1px dashed #cdeee0;padding:10px;border-radius:6px;background:#fbfffb}
+
+@media (max-width: 60em){
+  .profile-grid{grid-template-columns: 1fr}
+  .profile-left{width:auto}
+  .profile-avatar{margin:0 auto}
+}
+
+@media (max-width: 25em){
+  .profile-shell{margin:0;padding:1rem}
+  .profile-edit form{padding:1rem}
+}
+
+/* Campaign create page styles (harmonized with campaign/profile look) */
+.campaign-shell{
+  margin: 2.5em auto;
+  padding: 2rem;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 0.85rem;
+  box-shadow: 0 25px 50px rgba(5,54,81,0.06);
+  border: 1px solid #e6f0ea;
+}
+.campaign-shell-header{
+  margin-bottom: 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+  .campaign-shell-header h2{
+  margin:0;
+  font-size:1.9rem;
+  font-weight:800;
+  letter-spacing:0.02em;
+  background: linear-gradient(90deg, #0d7db8, #1aa37a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.campaign-create-form{
+  background:#ffffff;
+  border:1px solid #cbe0d4;
+  padding:1.5rem;
+  border-radius:0.6rem;
+  box-shadow:0 10px 25px rgba(9,64,94,0.04);
+  display:grid;
+  gap:0.85rem;
+}
+.campaign-create-form label{font-weight:600;color:#244b57}
+.campaign-create-form input[type="text"],
+.campaign-create-form input[type="number"],
+.campaign-create-form input[type="date"],
+.campaign-create-form textarea,
+.campaign-create-form select{
+  width:100%;
+  padding:0.6rem 0.75rem;
+  border:2px solid #e6f7f0;
+  border-radius:0.45rem;
+  background:#fbfffd;
+  font-size:0.95rem;
+  color:#153542;
+}
+.campaign-create-form textarea{min-height:120px;resize:none}
+.campaign-create-form .error{color:#c93535;font-weight:700}
+.campaign-create-form .form-actions{display:flex;justify-content:flex-end;margin-top:0.5rem}
+.campaign-create-form button{
+  background:#1aa37a;
+  color:white;
+  border:2px solid #1aa37a;
+  padding:0.6rem 1.2rem;
+  border-radius:0.45rem;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:140px;
+}
+.campaign-create-form button:hover{background:#158f69;border-color:#158f69}
+
+@media (max-width: 40em){
+  .campaign-shell{margin:1em;padding:1rem}
+  .campaign-create-form{padding:1rem}
+}
+
+/* Global override: prevent textarea resizing site-wide so modals and layouts remain stable */
+textarea{resize:none}
+
+/* Header user/avatar styles */
+.header-actions{display:flex;align-items:center;gap:0.6rem}
+.header-user-link{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit}
+.header-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(0,0,0,0.06);display:block}
+.header-name{font-weight:700;font-size:1rem;color:inherit}
+@media (max-width: 40em){.header-name{display:none}.header-avatar{width:32px;height:32px}}
+
+/* Subtle animation utilities */
+:root {
+  --anim-duration: 400ms;
+  --anim-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes ft-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ft-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ft-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.anim-fade-up {
+  animation-name: ft-fade-up;
+  animation-duration: var(--anim-duration);
+  animation-timing-function: var(--anim-ease);
+  animation-fill-mode: both;
+}
+
+.anim-pulse {
+  animation-name: ft-pulse;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.anim-float {
+  animation-name: ft-float;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.will-animate {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+.did-animate {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Small hover lift for interactive elements */
+.hover-lift:hover, .button:hover, a.button:hover {
+  transform: translateY(-3px);
+  transition: transform 160ms var(--anim-ease), box-shadow 160ms var(--anim-ease);
+}
+
+/* Gentle focus outline animation -- accessible */
+.focus-anim:focus {
+  box-shadow: 0 0 0 3px rgba(100,150,255,0.12);
+  transition: box-shadow 160ms var(--anim-ease);
+}
+
+/* ============================================================
+   Users Search Page Styles
+   ============================================================ */
+
+.users-search-page {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+}
+
+.users-search-hero {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    padding: 3rem 2rem;
+    margin: 0 0 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.users-search-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.users-search-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.users-search-hero h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.users-search-subtitle {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0 2rem 0;
+    max-width: 600px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.users-search-form-wrapper {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 800px;
+}
+
+.users-search-form {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.users-search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.9rem 1.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: white !important;
+    transition: all 0.3s ease;
+}
+
+.users-search-input:focus {
+    outline: none;
+    border-color: #0d7db8;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(13, 125, 184, 0.1);
+}
+
+.users-search-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.users-search-actions .button {
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.users-search-actions .button-outline {
+    background: white;
+    color: #0d7db8;
+    border: 2px solid white;
+}
+
+.users-search-actions .button-outline:hover {
+    background: #f8f9fa;
+    color: #0a5a8a;
+}
+
+.users-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
+}
+
+.users-section-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.users-section-header {
+    padding: 1.5rem 2rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.users-section-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.users-table-wrapper {
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table thead {
+    background: #f8f9fa;
+}
+
+.users-table th {
+    text-align: left;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.users-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.users-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.users-table td {
+    padding: 1.25rem 1.5rem;
+    color: #334155;
+}
+
+.users-table td:first-child {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.users-table .no-results {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+.users-table .button {
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.users-table .user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.users-table tr:hover .user-avatar {
+    transform: scale(1.05);
+    border-color: #0d7db8;
+}
+
+@media (max-width: 768px) {
+    .users-search-hero {
+        padding: 2rem 1rem;
+    }
+    
+    .users-search-hero h2 {
+        font-size: 2rem;
+    }
+    
+    .users-search-form {
+        flex-direction: column;
+    }
+    
+    .users-search-input {
+        min-width: 100%;
+    }
+    
+    .users-content {
+        padding: 0 1rem 2rem 1rem;
+    }
+    
+    .users-table th,
+    .users-table td {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Notifications Page */
+.notifications-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.notifications-header {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(13, 125, 184, 0.15);
+}
+
+.notifications-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.notifications-header h1 {
+    margin: 0 0 0.5rem 0;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.notifications-header-subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+}
+
+.notifications-mark-all-btn {
+    background: white;
+    color: #0d7db8;
+    border: none;
+    font-weight: 600;
+    padding: 0.9rem 1.8rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications-mark-all-btn svg {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.notifications-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.notification-item {
+    position: relative;
+    padding: 1.8rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.notification-item.unread {
+    background: linear-gradient(135deg, #fff 0%, #f8fcfb 100%);
+    border: 1px solid #0d7db840;
+    box-shadow: 0 2px 12px rgba(13, 125, 184, 0.08);
+}
+
+.notification-item.read {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.notification-item.clickable {
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13, 125, 184, 0.15) !important;
+}
+
+.notification-item.read:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.notification-indicator {
+    position: absolute;
+    top: 1.8rem;
+    left: 0;
+    width: 4px;
+    height: 50%;
+    background: linear-gradient(180deg, #0d7db8 0%, #1aa37a 100%);
+    border-radius: 0 4px 4px 0;
+}
+
+.notification-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+}
+
+.notification-text-content {
+    flex: 1;
+}
+
+.notification-text-content.with-padding {
+    padding-left: 1rem;
+}
+
+.notification-icon-text {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.notification-icon-unread {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.notification-icon-read {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.notification-message {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.notification-message.unread {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.notification-message.read {
+    color: #666;
+    font-weight: 400;
+}
+
+.notification-timestamp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 2.75rem;
+}
+
+.notification-timestamp small {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.notification-mark-read-form {
+    flex-shrink: 0;
+}
+
+.notification-mark-read-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    min-width: 44px;
+    min-height: 44px;
+    color: #0d7db8;
+    border: 1px solid #0d7db830;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.notification-mark-read-btn:hover {
+    background: #0d7db8;
+    color: white;
+    border-color: #0d7db8;
+}
+
+.notification-arrow-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+}
+
+.notifications-pagination {
+    margin-top: 2.5rem;
+}
+
+.notifications-empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f8fcfb 0%, #fff 100%);
+    border-radius: 16px;
+    border: 2px dashed #e5e5e5;
+}
+
+.notifications-empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0d7db820 0%, #1aa37a20 100%);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.notifications-empty-state h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.notifications-empty-state p {
+    margin: 0;
+    color: #888;
+    font-size: 1.05rem;
+}
+
+/* Profile Edit Page */
+.profile-edit-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1rem;
+}
+
+.profile-edit-header {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(13, 125, 184, 0.15);
+}
+
+.profile-edit-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.profile-edit-alert-success {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 1px solid #b1dfbb;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #155724;
+    font-weight: 500;
+}
+
+.profile-edit-alert-error {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border: 1px solid #f1aeb5;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #721c24;
+}
+
+.profile-edit-alert-error ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+}
+
+.profile-edit-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e5e5;
+}
+
+.profile-edit-section-header {
+    margin: 0 0 1.5rem 0;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.profile-picture-current {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.profile-picture-current img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 12px;
+    border: 3px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-no-image {
+    text-align: center;
+    color: #888;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.profile-picture-remove-btn {
+    background: #dc3545;
+    border-color: #dc3545;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.profile-picture-remove-btn:hover {
+    background: #c82333;
+    border-color: #bd2130;
+}
+
+.profile-picture-upload-area {
+    border: 2px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-picture-upload-area:hover {
+    border-color: #0d7db8;
+    background: linear-gradient(135deg, #f8fcfb 0%, #fff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 125, 184, 0.1);
+}
+
+.profile-picture-upload-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    color: #6c757d;
+}
+
+.profile-picture-upload-title {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.profile-picture-upload-subtitle {
+    margin: 0.5rem 0 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.profile-edit-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.profile-edit-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.profile-edit-form-group input,
+.profile-edit-form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.profile-edit-form-group input:focus,
+.profile-edit-form-group textarea:focus {
+    outline: none;
+    border-color: #0d7db8;
+    box-shadow: 0 0 0 3px rgba(13, 125, 184, 0.1);
+}
+
+.profile-edit-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-edit-actions .button {
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-edit-actions .button:first-child {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    border: none;
+    color: white;
+}
+
+.profile-edit-actions .button:first-child:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 125, 184, 0.3);
+}
+
+.profile-edit-delete-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff8f8 0%, #fff0f0 100%);
+    border: 2px solid #f5c6cb;
+    border-radius: 16px;
+}
+
+.profile-edit-delete-section h3 {
+    margin: 0 0 1rem 0;
+    color: #721c24;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.profile-edit-delete-section p {
+    color: #721c24;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.profile-edit-delete-btn {
+    background: #dc3545;
+    border-color: #dc3545;
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-edit-delete-btn:hover {
+    background: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* ============================================================
+   Admin Dashboard Page Styles
+   ============================================================ */
+
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.admin-header {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    padding: 3rem 2rem;
+    margin: -1rem -1rem 2rem -1rem;
+    border-radius: 0.85rem;
+    box-shadow: 0 8px 32px rgba(13, 125, 184, 0.15);
+}
+
+.admin-header h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.admin-search-row {
+    margin-bottom: 2rem;
+}
+
+.admin-search-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #1aa37a;
+    box-shadow: 0 0 0 3px rgba(26, 163, 122, 0.1);
+}
+
+.admin-search-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.admin-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+.admin-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+#admin-users-list {
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.reports-table thead {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.reports-table th {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.reports-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.reports-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.reports-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.reports-table .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.admin-container .button {
+    background: linear-gradient(135deg, #1aa37a 0%, #16865f 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.admin-container .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.3);
+    background: linear-gradient(135deg, #16865f 0%, #127350 100%);
+}
+
+.admin-container .button-outline {
+    background: white;
+    color: #1aa37a;
+    border: 2px solid #1aa37a;
+}
+
+.admin-container .button-outline:hover {
+    background: #f0fdf8;
+    border-color: #16865f;
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.2);
+}
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.admin-modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    max-width: 520px;
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.admin-modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+}
+
+.admin-modal-content label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.admin-modal-content input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.admin-modal-content input:focus {
+    outline: none;
+    border-color: #1aa37a;
+    box-shadow: 0 0 0 3px rgba(26, 163, 122, 0.1);
+}
+
+.admin-modal-content .button {
+    background: linear-gradient(135deg, #1aa37a 0%, #16865f 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.admin-modal-content .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.3);
+    background: linear-gradient(135deg, #16865f 0%, #127350 100%);
+}
+
+.admin-modal-content .button-outline {
+    background: white;
+    color: #1aa37a;
+    border: 2px solid #1aa37a;
+}
+
+.admin-modal-content .button-outline:hover {
+    background: #f0fdf8;
+    border-color: #16865f;
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.2);
+}
+
+.account-type-group {
+    margin-bottom: 1.5rem;
+}
+
+.account-type-group > label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.account-type-options {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.account-type-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: normal;
+    padding-right: 0.5rem;
+}
+
+.account-type-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.account-type-option span {
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.admin-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #64748b;
+}
+
+.admin-empty-state p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.status-open {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-resolved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-accepted {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.reports-table tbody tr td:first-child {
+    font-weight: 600;
+    color: #64748b;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.action-buttons form {
+    margin: 0;
+    display: inline-block;
+}

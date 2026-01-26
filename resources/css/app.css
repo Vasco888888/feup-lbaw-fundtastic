@@ -1,0 +1,425 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Header layout tweaks for app header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-username a {
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Ensure buttons used in the header keep consistent sizing */
+.header-actions .button {
+    margin: 0;
+    padding: 0.6rem 0.9rem;
+}
+
+/* Prevent users from manually resizing textareas which can break modal layout */
+textarea {
+    resize: none;
+}
+
+/* Subtle animation utilities */
+:root {
+    --anim-duration: 400ms;
+    --anim-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes ft-fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ft-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes ft-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.anim-fade-up {
+    animation-name: ft-fade-up;
+    animation-duration: var(--anim-duration);
+    animation-timing-function: var(--anim-ease);
+    animation-fill-mode: both;
+}
+
+.anim-pulse {
+    animation-name: ft-pulse;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.anim-float {
+    animation-name: ft-float;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.will-animate {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+.did-animate {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Small hover lift for interactive elements */
+.hover-lift:hover, .button:hover, a.button:hover {
+    transform: translateY(-3px);
+    transition: transform 160ms var(--anim-ease), box-shadow 160ms var(--anim-ease);
+}
+
+/* Gentle focus outline animation -- accessible */
+.focus-anim:focus {
+    box-shadow: 0 0 0 3px rgba(100,150,255,0.12);
+    transition: box-shadow 160ms var(--anim-ease);
+}
+
+
+/* Media delete button styles */
+.media-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(239, 68, 68, 0.9);
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.media-delete-btn:hover {
+    background-color: #dc2626;
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.media-delete-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+}
+
+/* Admin Dashboard Styles */
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.admin-header {
+    background: linear-gradient(135deg, #0d7db8 0%, #1aa37a 100%);
+    padding: 3rem 2rem;
+    margin: -1rem -1rem 2rem -1rem;
+    border-radius: 0.85rem;
+    box-shadow: 0 8px 32px rgba(13, 125, 184, 0.15);
+}
+
+.admin-header h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.admin-search-row {
+    margin-bottom: 2rem;
+}
+
+.admin-search-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #1aa37a;
+    box-shadow: 0 0 0 3px rgba(26, 163, 122, 0.1);
+}
+
+.admin-search-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.admin-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+.admin-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+#admin-users-list {
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.reports-table thead {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.reports-table th {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.reports-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.reports-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.reports-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.reports-table .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button {
+    background: linear-gradient(135deg, #1aa37a 0%, #16865f 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.3);
+    background: linear-gradient(135deg, #16865f 0%, #127350 100%);
+}
+
+.button-outline {
+    background: white;
+    color: #1aa37a;
+    border: 2px solid #1aa37a;
+}
+
+.button-outline:hover {
+    background: #f0fdf8;
+    border-color: #16865f;
+    box-shadow: 0 4px 12px rgba(26, 163, 122, 0.2);
+}
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.admin-modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    max-width: 520px;
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.admin-modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+}
+
+.admin-modal-content label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.admin-modal-content input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.admin-modal-content input:focus {
+    outline: none;
+    border-color: #1aa37a;
+    box-shadow: 0 0 0 3px rgba(26, 163, 122, 0.1);
+}
+
+.admin-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #64748b;
+}
+
+.admin-empty-state p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-open {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-resolved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-accepted {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.reports-table tbody tr td:first-child {
+    font-weight: 600;
+    color: #64748b;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.action-buttons form {
+    margin: 0;
+    display: inline-block;
+}
+
