@@ -51,7 +51,7 @@ COPY --chown=www-data:www-data . .
 COPY ./etc/php/php.ini /usr/local/etc/php/conf.d/php.ini
 COPY ./etc/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY .env.production /var/www/.env
-COPY docker_run.sh /docker_run.sh
+COPY scripts/docker_run.sh /docker_run.sh
 
 # Ensure entrypoint script is executable
 RUN chmod +x /docker_run.sh
