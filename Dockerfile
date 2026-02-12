@@ -10,7 +10,7 @@
 # Copies Laravel source and configuration files into the container.
 # Entrypoint script starts php-fpm and nginx.
 # -----------------------------------------------------------------------------
-    
+
 FROM php:8.3-fpm
 
 # Install system dependencies and required PHP extensions
@@ -20,12 +20,12 @@ FROM php:8.3-fpm
 # Also remove default nginx site to avoid conflicts.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-       nginx \
-       libpq-dev \
-       ca-certificates \
-       zip \
-       unzip \
-       git \
+    nginx \
+    libpq-dev \
+    ca-certificates \
+    zip \
+    unzip \
+    git \
     && docker-php-ext-install pdo_pgsql \
     && rm -rf /var/lib/apt/lists/* \
     && rm -f /etc/nginx/sites-enabled/default
@@ -48,8 +48,8 @@ COPY --chown=www-data:www-data . .
 # - Nginx site config
 # - Production .env for Laravel
 # - Entrypoint script to launch php-fpm + nginx
-COPY ./etc/php/php.ini /usr/local/etc/php/conf.d/php.ini
-COPY ./etc/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY .env.production /var/www/.env
 COPY scripts/docker_run.sh /docker_run.sh
 

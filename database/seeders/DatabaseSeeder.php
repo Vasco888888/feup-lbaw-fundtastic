@@ -17,23 +17,23 @@ class DatabaseSeeder extends Seeder
         $schema = env('DB_SCHEMA');
 
         // 1. Create schema and tables (database.sql)
-        $schemaPath = base_path('database/database.sql');
+        $schemaPath = base_path('database/sql/database.sql');
         if (file_exists($schemaPath)) {
             $sql = file_get_contents($schemaPath);
             DB::unprepared($sql);
             $this->command?->info('Tables created successfully');
         } else {
-            $this->command?->error('database.sql not found!');
+            $this->command?->error('database.sql not found at ' . $schemaPath);
         }
 
         // 2. Populate with sample data (populate.sql)
-        $populatePath = base_path('database/populate.sql');
+        $populatePath = base_path('database/sql/populate.sql');
         if (file_exists($populatePath)) {
             $sql = file_get_contents($populatePath);
             DB::unprepared($sql);
             $this->command?->info('Sample data inserted successfully');
         } else {
-            $this->command?->warn('populate.sql not found - skipping sample data');
+            $this->command?->warn('populate.sql not found at ' . $populatePath . ' - skipping sample data');
         }
 
         // Show a message in the Artisan console
